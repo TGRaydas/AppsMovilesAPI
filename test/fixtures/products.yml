@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  local: one
+  name: MyString
+  price: 1
+  type: 
+  detail: MyString
+
+two:
+  local: two
+  name: MyString
+  price: 1
+  type: 
+  detail: MyString
