@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20180507225849) do
   create_table "bills", force: :cascade do |t|
     t.integer "user_id"
     t.integer "desk_id"
+    t.boolean "payed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["desk_id"], name: "index_bills_on_desk_id"

@@ -1,0 +1,52 @@
+<script>
+function getProducts() {
+    all_products = null;
+    $.ajax(
+        {
+            url:"/products",
+            async: false,
+            success:function (value) {
+            all_products = value;
+        },
+        error:function () {
+
+        }
+    });
+    return all_products;
+}
+function CreateBill(all_products){
+    var object = [];
+    for (var i = 0; i < 5; i++)
+    {
+        object.push(all_products[i]);
+    }
+    var url = "/create_bill?desk=3;products=" + JSON.stringify(object);
+    $.ajax({url: url, success:function (value) {
+
+        },error:function () {
+
+        }
+    });
+}
+function KillBill(value) {
+    $.ajax({
+        url: "/kill_bill/" + value.id.toString(),
+        success: function (result) {
+            console.log(result);
+        },
+        error: function () {
+
+        }
+    });
+}
+
+function main(){
+    all_products = getProducts();
+    CreateBill(all_products)
+}
+
+
+$(document).ready(function () {
+      main();
+});
+</script>

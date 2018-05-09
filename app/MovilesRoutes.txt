@@ -1,0 +1,28 @@
+
+
+###Recibir todos los productos
+get "/products"
+
+### Mesas
+get "/desks"
+
+### Login
+get "/login?email='xxx@asd.cl';pass='xxx'"
+
+### Create Bill
+get "/create_bill?object_array={.....}"
+
+### Split By Users
+get "/split_by_users?desk='';object_array={.....}"
+
+
+### Split Bill
+get "/split_bill/:id"
+
+### Payed Bill
+
+post "/kill_bill/:id"
+
+###################
+
+get "/"
