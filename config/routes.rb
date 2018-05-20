@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/', to: "home#index"
   get '/create_bill', to: "bills#create_bill"
   get '/kill_bill/:id', to: "bills#kill_bill"
+  post '/authenticate', to: "authenticate#authenticate"
 end

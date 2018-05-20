@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20180507225849) do
     t.integer "local_id"
     t.string "user"
     t.string "password"
+    t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["local_id"], name: "index_users_on_local_id"
