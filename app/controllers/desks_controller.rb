@@ -15,4 +15,16 @@ class DesksController < ApplicationController
     end
     render :json => return_desks
   end
+
+  def my_desks
+    user = User.find_by(token: params[:token])
+    bills = Bill.where(payed: false, user_id: user.id)
+    desks = []
+    bills.each do |b|
+      desks.push(b.desk_id)
+    end
+    desks = Desk.where(id: desks)
+    render :json => desks
+  end
+
 end

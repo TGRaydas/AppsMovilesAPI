@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   belongs_to :local
+  has_many :bills
   before_create :create_token
 
   def create_token
