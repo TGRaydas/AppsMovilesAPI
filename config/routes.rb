@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/my_desks', to: "desks#my_desks"
   get '/', to: "home#index"
   post '/create_bill', to: "bills#create_bill"
-  get '/kill_bill/:id', to: "bills#kill_bill"
+  post '/kill_bill/', to: "bills#kill_bill"
+  get  '/desks/bills/:id', to: "bills#get_bill"
   post '/authenticate', to: "authenticate#authenticate"
 end
