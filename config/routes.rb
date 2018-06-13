@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get '/products', to: "products#index"
   get '/desks', to: "desks#index"
   get '/my_desks', to: "desks#my_desks"
-  get '/', to: "home#index"
   post '/create_bill', to: "bills#create_bill"
   post '/kill_bill/', to: "bills#kill_bill"
   get  '/desks/bills/:id', to: "bills#get_bill"
