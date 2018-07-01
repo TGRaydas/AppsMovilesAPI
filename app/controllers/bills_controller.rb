@@ -43,7 +43,7 @@ class BillsController < ApplicationController
     bill = Bill.find_by(desk_id: desk.id, payed: false)
     products = bill.products
     products.each do |p|
-      p["img_url"] << p.image.url(:medium)
+      p["img_url"] << p.image.url(:original)
     end
     render :json => products
   end
