@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   post '/create_bill', to: "bills#create_bill"
   post '/kill_bill/', to: "bills#kill_bill"
   get  '/desks/bills/:id', to: "bills#get_bill"
+  post '/update_bill/', to: "bills#update_bill"
   post '/authenticate', to: "authenticate#authenticate"
 end

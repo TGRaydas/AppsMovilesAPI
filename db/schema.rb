@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180507225849) do
+ActiveRecord::Schema.define(version: 20180701173351) do
 
   create_table "bills", force: :cascade do |t|
     t.integer "user_id"
@@ -59,8 +59,13 @@ ActiveRecord::Schema.define(version: 20180507225849) do
     t.integer "price"
     t.string "product_type"
     t.string "detail"
+    t.string "img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["local_id"], name: "index_products_on_local_id"
   end
 

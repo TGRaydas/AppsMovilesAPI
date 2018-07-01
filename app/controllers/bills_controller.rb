@@ -7,15 +7,28 @@ class BillsController < ApplicationController
       return 0
     end
     object = params[:products]
-    if object.length == 0
-      render :json => false
-      return 0
-    end
     bill = Bill.create(user_id: 1 , desk_id: params[:desk][:id], payed: false)
     object.each do |product|
       DishBill.create(bill_id: bill.id, product_id: product[:id])
     end
     render :json => bill
+  end
+
+  def update_bill
+    desk = Desk.find(params[:desk][:id])
+    the_bill = Bill.find_by(payed: false, desk_id: desk)
+    if the_bill == nil
+      render :json => false
+      return 0
+    end
+    the_bill.dish_bills.each do |d|
+      d.destroy
+    end
+    object = params[:products]
+    object.each do |product|
+      DishBill.create(bill_id: the_bill.id, product_id: product[:id])
+    end
+    render :json => the_bill
   end
 
   def kill_bill
@@ -29,6 +42,9 @@ class BillsController < ApplicationController
     desk = Desk.find(params[:id])
     bill = Bill.find_by(desk_id: desk.id, payed: false)
     products = bill.products
+    products.each do |p|
+      p["img_url"] << p.image.url(:medium)
+    end
     render :json => products
   end
 end
